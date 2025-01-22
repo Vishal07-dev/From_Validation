@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 const App = () => {
   const [password, setPassword] = useState(true);
   const [passwordvalue, setPasswordvalue] = useState();
-  const [passerror, setpasserror] = useState();
+  const [passerror, setPasserror] = useState();
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
-  const[emailerror,setEmailError]=useState(false)
-  const [isPopupVisible, setPopupVisible] = useState(false);
+  const[emailerror,setEmailerror]=useState(false)
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const passwordhandle = (e) => {
     e.preventDefault();
@@ -24,19 +24,19 @@ const App = () => {
   
     
   
-    setpasserror(!isPasswordValid);
-    setEmailError(!isEmailValid);
+    setPasserror(!isPasswordValid);
+    setEmailerror(!isEmailValid);
   
     const isValid = isPasswordValid && isEmailValid;
   
   
     if (isValid) {
       // Show popup
-      setPopupVisible(true);
+      setIsPopupVisible(true);
   
       // Auto-close popup after 3 seconds
       setTimeout(() => {
-        setPopupVisible(false);
+        setIsPopupVisible(false);
       }, 3000);
   
       // Clear input fields
@@ -44,7 +44,7 @@ const App = () => {
       setEmail("");
       setPasswordvalue("");
     } else {
-      setPopupVisible(false);
+      setIsPopupVisible(false);
     }
   };
   return (
@@ -76,12 +76,12 @@ const App = () => {
                 placeholder="Enter your password"
               />
               {passwordvalue && (
-                <button
+                <p
                   className="absolute right-3 top-3 text-sm text-blue-700 hover:text-blue-500"
                   onClick={passwordhandle}
                 >
                   {password ? "Show" : "Hide"}
-                </button>
+                </p>
               )}
             </div>
             {passerror && (
@@ -100,7 +100,7 @@ const App = () => {
               placeholder="Enter your email"
             />
        {emailerror && (
-              <h1 className="text-sm w-fit p-1 rounded-lg  text-red-500 mt-1 font-medium">
+              <h1 className="text-sm w-fit p-1 rounded-lg bg-white text-red-500 mt-1 font-medium">
                 email is not valid
               </h1>
             )}
