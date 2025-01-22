@@ -85,7 +85,7 @@ const App = () => {
               )}
             </div>
             {passerror && (
-              <h1 className="text-sm bg-white text-red-500 mt-1 font-medium">
+              <h1 className="text-sm  text-red-300 mt-1 font-medium">
                 Password must be 6 or more characters.
               </h1>
             )}
@@ -100,7 +100,7 @@ const App = () => {
               placeholder="Enter your email"
             />
        {emailerror && (
-              <h1 className="text-sm w-fit p-1 rounded-lg bg-white text-red-500 mt-1 font-medium">
+              <h1 className="text-sm w-fit p-1 rounded-lg  text-red-300 mt-1 font-medium">
                 email is not valid
               </h1>
             )}
